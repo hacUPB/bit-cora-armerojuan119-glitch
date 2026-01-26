@@ -47,6 +47,9 @@
 
 ---
 
+![alt text](<experimento emulador.jpeg>)
+
+---
 ## Diferencia entre Memoria ROM y RAM
 
 | ROM | RAM |
