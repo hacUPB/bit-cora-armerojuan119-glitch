@@ -3,24 +3,63 @@
      - La CPU lee las instrucciones desde la ROM.
      - coge los registros A y D, y realiza una operacion matematica.
      - Guarda el resultado final en la RAM.
- 
+       
+ ---
        
  - 2 INICIÉ IDENTIFICANDO QUE NÚMERO SE GUARDABA AL LLEGAR A  LA MEMORIA 16 Y LLEGUÉ A LA CONCLUSION DE QUE ES EL NÚMERO 3 TAL Y COMO SE EVIDENCIAS EN LA IMAGEN.
 ![alt text](imagenes/MEMORIA16.png)
 
+---
+
 - 3 Este numero resulta porque en D almacena un resultado temporal de la operacion de A y D, luego el valor se copia en la memoria 16.
+
+
+  ---
   
 - 4
-  # Fetch:
+# Fetch:
   la CPU lee la instruccion que se encuentra en la ROM usando el contador del programa.
   # Decode:
   el programa identifica que tipo de intruccion es... A o C
    **A(@valor)  o   C(D=A, D=D+A, etc)**
   # Execute:
   ejecuta la operacion: **carga un valor, hace operaciones o guarda en memoria**
+
+---
   
   - 5 - Registro a: cambia cuando se usan instrucciones de el mismo... **A(@valor)**
       - Almacenamiento D: almacena resultados y datos rapidos dependiendo del contador o de lo que le indiquemos.
-      - RAM: cambia cuando el programa escribe en ella o la llama. 
+      - RAM: cambia cuando el programa escribe en ella o la llama.
+
+---
+
+## Cambios Observados en Registros y Memoria
+- El *registro A* cambia cuando se cargan direcciones o valores constantes.
+- El *registro D* almacena los resultados de las operaciones aritméticas.
+- La *RAM* almacena los resultados finales del programa.
+
+---
+
+## Resultado del Experimento
+- El programa realiza una suma de los numeros 5 y 10.
+- El resultado se almacena correctamente en la dirección de memoria indicada (20).
+- El valor almacenado en la RAM corresponde al resultado de la operación ejecutada.
+
+---
+
+## Diferencia entre Memoria ROM y RAM
+
+| ROM | RAM |
+|-----|-----|
+| Almacena el programa | Almacena los datos |
+| No cambia durante la ejecución | Cambia durante la ejecución |
+| Contiene instrucciones | Contiene resultados |
+
+---
+
+## Conclusión
+La CPU Hack ejecuta instrucciones de manera secuencial y controlada.  
+La ROM define el comportamiento del programa y la RAM refleja los resultados de su ejecución.  
+Comprender el ciclo Fetch–Decode–Execute permite entender cómo funciona un procesador a bajo nivel.
 
   
