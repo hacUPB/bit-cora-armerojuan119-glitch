@@ -187,7 +187,7 @@ Este ejercicio me ayudó a entender cómo se puede representar una estructura if
 ```
 
 # Actividad 5
-**¿Qué creo que va a pasar?:** 
+## **¿Qué creo que va a pasar?:** 
 - Espero que el programa realice 5 iteraciones ($1+2+3+4+5$). El resultado final en la dirección de memoria RAM[12] debe ser 15.
 - Al usar direcciones fijas (@0 para el contador e @12 para el total), predigo que no se activará ninguna celda a partir de la RAM[16]. Al final, la RAM[0] debería volver a 0 porque incluí una instrucción de limpieza.
 
