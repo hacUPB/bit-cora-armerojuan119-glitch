@@ -164,21 +164,16 @@ M=D
 
 **intento #1**
 
-Elaboré un código que no me funcionó para nada
-![alt text](<codigo 4 no funcional.png>)
-
-
-**intento #2**
-
 usé D=A-D en vez de D=D-A y el programa no comparaba correctamente si RAM[5] es menor que 10.
 ![alt text](<ERROR OPERACION.png>)
 
-**intento #3**
+**intento #2**
 
 utilicé JGT (mayor que cero) en lugar de JLT, osea que el programa estuvo ejecutando el if cuando RAM[5] sea mayor que 10, no menor, por lo cual el resultado almacenado en 7 se invirtió.
 ![alt text](<imagenes/ERROR JGT.png>)
 
 **Observaciones**
+- En los 3 intentos que hice la solución la guió la ia pero no se hizo en su totalidad, solo en las lineas que marcaban error  
 
 - Al ejecutar el programa, se nota que primero se carga el valor de RAM[5] y se le resta 10.
 
