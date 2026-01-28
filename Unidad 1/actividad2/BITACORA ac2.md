@@ -165,7 +165,7 @@ M=D
 **intento #1**
 
 usé D=A-D en vez de D=D-A y el programa no comparaba correctamente si RAM[5] es menor que 10.
-![alt text](<ERROR OPERACION.png>)
+![alt text](<imagenes/ERROR OPERACION.png>)
 
 **intento #2**
 
