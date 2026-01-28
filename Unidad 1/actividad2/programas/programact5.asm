@@ -1,58 +1,37 @@
-// ---------- Inicialización ----------
+// Inicialización
+@i
+M=1      // i = 1 (Contador)
+@sum
+M=0      // sum = 0 (Acumulador)
 
-// RAM[13] = 1
-@1
-D=A
-@13
-M=D
-
-// RAM[14] = 5
-@5
-D=A
-@14
-M=D
-
-// contador = 1
-@13
-D=M
-@10
-M=D
-
-// suma = 0
-@11
-M=0
-
-// ---------- Ciclo ----------
 (LOOP)
-    // suma = suma + contador
-    @10
+    // Comprobar si i > 5
+    @i
     D=M
-    @11
+    @5
+    D=D-A    // D = i - 5
+    @WRITE_RESULT
+    D;JGT    // Si (i - 5) > 0, saltar a guardar resultado
+
+    // Sumar: sum = sum + i
+    @i
+    D=M
+    @sum
     M=D+M
 
-    // contador = contador + 1
-    @10
+    // Incrementar: i = i + 1
+    @i
     M=M+1
 
-    // if contador > 5 goto END
-    @10
-    D=M
-    @14
-    D=D-M
-    @END
-    D;JGT
-
-    // volver al inicio del ciclo
     @LOOP
-    0;JMP
+    0;JMP    // Repetir ciclo
 
-// ---------- Fin ----------
-(END)
-    @11
+(WRITE_RESULT)
+    @sum
     D=M
     @12
-    M=D
+    M=D      // Guardar el total en RAM[12]
 
-(ENDLOOP)
-    @ENDLOOP
-    0;JMP
+(END)
+    @END
+    0;JMP    // Bucle infinito de seguridad
