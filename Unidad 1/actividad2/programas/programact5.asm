@@ -1,21 +1,38 @@
-@1
+@1     
 D=A
-@0
+@0     
 M=D
 
-(LOOP)
-    @5
-    D=D-A
-    @END
-    D;JGT
+@12     
+M=0     
 
-    // ERROR AQUÍ:
+(LOOP)
+    
     @0
-    M=M+M    // Intenté sumar el contador a sí mismo directamente
+    D=M
+    @5
+    D=D-A    
+    @END_PROCESS
+    D;JGT    
     
+    @0
+    D=M      
     @12
-    M=M+0    // Intenté sumar RAM[0] a RAM[12] sin usar D
-    
+    M=D+M    
+
+   
+    @0
+    M=M+1
+
     @LOOP
+    0;JMP
+
+(END_PROCESS)
+
+    @0
+    M=0 
+
+(INFINITE_LOOP)
+    @INFINITE_LOOP
     0;JMP
     

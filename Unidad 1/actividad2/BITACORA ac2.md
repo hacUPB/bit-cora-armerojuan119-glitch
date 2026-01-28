@@ -190,6 +190,11 @@ Este ejercicio me ayudó a entender cómo se puede representar una estructura if
 ```
 
 # Actividad 5
+**¿Qué creo que va a pasar?:** 
+- Espero que el programa realice 5 iteraciones ($1+2+3+4+5$). El resultado final en la dirección de memoria RAM[12] debe ser 15.
+- Al usar direcciones fijas (@0 para el contador e @12 para el total), predigo que no se activará ninguna celda a partir de la RAM[16]. Al final, la RAM[0] debería volver a 0 porque incluí una instrucción de limpieza.
+
+Código
 ```jv
 @1     
 D=A
@@ -237,12 +242,26 @@ M=0
 
 2. El compilador me daba error o simplemente no sumaba nada, investigando descubrí que el CPU no puede conectar dos celdas de RAM a la vez. Todo, absolutamente todo, tiene que pasar primero por el registro D para poder operarse en la ALU. Si no se toca el registro D, los datos no se mueven.
 
+![alt text](imagenes/second.png)
+
 3. Este error fue el más difícil de detectar porque el simulador no tira alerta, simplemente da un resultado basura. El fallo fatal fue usar D=A en lugar de D=M al intentar sumar el contador, estaba sumando 'direcciones' en lugar de datos.
 
+![alt text](imagenes/direyval.png)
 
 4. En este error se me almacenaban datos en casi 5 memorias, cuando solamente necesitaba el resultado operacional en la memoria 12, esto pasó porque permití que se guardaran datos en memorias en las que ellos debian estar momentaneamente para después volver a su valor inicial 0.
+
 ![alt text](<imagenes/error act5 guarda muchos valores en las memorias.png>)
 
+Observaciones
+- Registro A y D: Vi cómo el registro A cambiaba constantemente para apuntar a las instrucciones de salto y a las celdas de memoria. El registro D fue el "mensajero" que llevó los valores de la RAM[0] a la ALU para sumarlos a la RAM[12].
+
+- Bucle: El programa repitió el bloque (LOOP) exactamente 5 veces. En la sexta vuelta, la resta D-A (6 - 5) dio 1, lo que activó el salto JGT hacia CLEANUP.
+
+- Memoria Final: La celda RAM[12] mostró el valor 15. La RAM[0] se puso en gris (cero) al final.
+
+```
+Programar en ensamblador me obligó a pensar como el hardware: cada suma requiere mover datos manualmente al Registro D, ya que la CPU no puede conectar dos memorias directamente. Aprendí que un ciclo no es más que una resta constante en la ALU seguida de un salto condicional (JGT). Al final, usar direcciones fijas en lugar de variables fue la clave para controlar exactamente qué celdas de la RAM se activaban, demostrando que en bajo nivel, el programador tiene la responsabilidad total sobre el estado y la limpieza de la memoria.
+```
 
 # Actividad 6
 1. Fases Fetch–Decode–Execute y rol del PC
