@@ -156,11 +156,11 @@ M=D
 ```
 ### Demostración funcionabilidad numero menor a 10.
 
-![alt text](<4 funcional menro que 10.png>)
+![alt text](<imagenes/4 funcional menro que 10.png>)
 
 ### Demostración funcionabilidad número mayor a 10
 
-![alt text](<4 funcional mayor que 10.png>)
+![alt text](<imagenes/4 funcional mayor que 10.png>)
 
 **intento #1**
 
