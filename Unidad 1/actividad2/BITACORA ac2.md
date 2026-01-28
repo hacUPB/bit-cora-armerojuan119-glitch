@@ -133,7 +133,86 @@ Aquí el programa verifica si el valor leído del teclado es diferente de cero.
 Esta condición permite decidir si se debe dibujar o borrar en la pantalla.
 
 ---
+# Actividad 4
 
+
+
+# Actividad 5
+
+
+
+
+# Actividad 6
+1. Fases Fetch–Decode–Execute y rol del PC
+
+Fetch: la CPU va a buscar la instrucción a la memoria usando el Program Counter.
+
+Decode: la CPU interpreta qué instrucción es y qué debe hacer.
+
+Execute: se ejecuta la instrucción (cálculo, guardar datos, saltar, etc.).
+El Program Counter (PC) guarda la dirección de la siguiente instrucción que se va a ejecutar y normalmente se incrementa, a menos que haya un salto.
+
+2. Diferencia entre instrucción-A e instrucción-C
+
+Una instrucción-A empieza con @ y sirve para cargar un valor o una dirección en el registro A.
+
+Ejemplo: @10
+
+Una instrucción-C sirve para hacer cálculos, asignaciones o saltos usando registros como D, A o M.
+
+Ejemplo: D=M
+
+3. Función de los componentes
+
+Registro D: guarda datos temporales para cálculos.
+
+Registro A: guarda direcciones de memoria o valores constantes.
+
+ALU: hace las operaciones matemáticas y lógicas (sumar, restar, comparar, etc.).
+
+4. Salto condicional en Hack
+Se hace con una instrucción-C que incluye una condición de salto.
+Ejemplo: si quiero saltar cuando D > 0:
+```
+@ETIQUETA
+D;JGT
+```
+Si D es mayor que cero, el programa salta a ETIQUETA.
+
+5. Implementación de un loop
+Un loop se hace usando una etiqueta y un salto condicional o incondicional.
+Ejemplo: decrementar un valor hasta que llegue a cero:
+```
+(LOOP)
+D=D-1
+@LOOP
+D;JGT
+```
+6. Diferencia entre D=M y M=D
+
+D=M: copia el valor de la memoria a D.
+
+M=D: guarda el valor de D en la memoria.
+
+7. Leer del teclado y pintar en la pantalla
+
+Para leer el teclado se accede a la dirección KBD, que tiene el valor de la tecla presionada.
+
+Para pintar en la pantalla se escribe un valor en una dirección de SCREEN, que controla los píxeles.
+
+### 2: reflexión (metacognición)
+
+1. Concepto más desafiante
+Los saltos y los loops, porque al inicio me confundía cuándo el programa realmente saltaba y cuándo no.
+
+2. Metodología más útil
+Cuando predecía qué iba a pasar antes de ejecutar el código y luego veía que el resultado era diferente. Eso me ayudó a entender mis errores.
+
+3. Momento “¡Aha!”
+Cuando entendí que A no solo guarda números, sino direcciones de memoria. Eso aclaró muchas instrucciones.
+
+4. Qué haré diferente en la próxima unidad
+Practicar más desde el inicio y probar pequeños ejemplos en lugar de esperar a entender todo de una sola vez.
 
 
 
