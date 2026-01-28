@@ -85,4 +85,4 @@ En esta parte del código estuve un poco perdido porque pensé ue la instrucció
   1. Una instrucción que usa ALU es: **D=D-A**
 Esta instrucción realiza una *resta* entre el valor que está en el registro D y el valor del registro A.  
 La ALU se encarga de hacer esta operación matemática y guarda el resultado en D.  
-En el programa se utiliza para comparar direcciones de memoria, como cuando se revisan los límites de SCREEN o KBD.
+En el programa se utiliza para comparar direcciones de memoria, como cuando se revisan los límites de SCREEN o KBD.   
