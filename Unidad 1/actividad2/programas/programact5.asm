@@ -1,30 +1,34 @@
-// Inicializar constantes
+// ---------- Inicialización ----------
+
+// RAM[13] = 1
 @1
 D=A
 @13
-M=D        // RAM[13] = 1
+M=D
 
+// RAM[14] = 5
 @5
 D=A
 @14
-M=D        // RAM[14] = 5
+M=D
 
-// Inicializar contador = 1
+// contador = 1
 @13
 D=M
 @10
-M=D        // RAM[10] = 1
+M=D
 
-// Inicializar suma = 0
+// suma = 0
 @11
 M=0
 
+// ---------- Ciclo ----------
 (LOOP)
     // suma = suma + contador
     @10
     D=M
     @11
-    M=D+M
+    M=M+D
 
     // contador = contador + 1
     @10
@@ -38,12 +42,12 @@ M=0
     @END
     D;JGT
 
-    // volver al ciclo
+    // volver al inicio del ciclo
     @LOOP
     0;JMP
 
+// ---------- Fin ----------
 (END)
-    // guardar resultado en RAM[12]
     @11
     D=M
     @12
