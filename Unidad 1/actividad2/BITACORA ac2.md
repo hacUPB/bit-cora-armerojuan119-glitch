@@ -145,32 +145,32 @@ Esta condición permite decidir si se debe dibujar o borrar en la pantalla.
 # Actividad 6
 1. Fases Fetch–Decode–Execute y rol del PC
 
-Fetch: la CPU va a buscar la instrucción a la memoria usando el Program Counter.
+- Fetch: la CPU va a buscar la instrucción a la memoria usando el Program Counter.
 
-Decode: la CPU interpreta qué instrucción es y qué debe hacer.
+- Decode: la CPU interpreta qué instrucción es y qué debe hacer.
 
-Execute: se ejecuta la instrucción (cálculo, guardar datos, saltar, etc.).
-El Program Counter (PC) guarda la dirección de la siguiente instrucción que se va a ejecutar y normalmente se incrementa, a menos que haya un salto.
+- Execute: se ejecuta la instrucción (cálculo, guardar datos, saltar, etc.).
+- El Program Counter (PC) guarda la dirección de la siguiente instrucción que se va a ejecutar y normalmente se incrementa, a menos que haya un salto.
 
 2. Diferencia entre instrucción-A e instrucción-C
 
-Una instrucción-A empieza con @ y sirve para cargar un valor o una dirección en el registro A.
+- Una instrucción-A empieza con @ y sirve para cargar un valor o una dirección en el registro A.
 
 Ejemplo: @10
 
-Una instrucción-C sirve para hacer cálculos, asignaciones o saltos usando registros como D, A o M.
+- Una instrucción-C sirve para hacer cálculos, asignaciones o saltos usando registros como D, A o M.
 
 Ejemplo: D=M
 
 3. Función de los componentes
 
-Registro D: guarda datos temporales para cálculos.
+- Registro D: guarda datos temporales para cálculos.
 
-Registro A: guarda direcciones de memoria o valores constantes.
+- Registro A: guarda direcciones de memoria o valores constantes.
 
-ALU: hace las operaciones matemáticas y lógicas (sumar, restar, comparar, etc.).
+- ALU: hace las operaciones matemáticas y lógicas (sumar, restar, comparar, etc.).
 
-4. Salto condicional en Hack
+4. Salto condicional en Hack:
 Se hace con una instrucción-C que incluye una condición de salto.
 Ejemplo: si quiero saltar cuando D > 0:
 ```
@@ -179,7 +179,7 @@ D;JGT
 ```
 Si D es mayor que cero, el programa salta a ETIQUETA.
 
-5. Implementación de un loop
+5. Implementación de un loop:
 Un loop se hace usando una etiqueta y un salto condicional o incondicional.
 Ejemplo: decrementar un valor hasta que llegue a cero:
 ```
@@ -190,15 +190,15 @@ D;JGT
 ```
 6. Diferencia entre D=M y M=D
 
-D=M: copia el valor de la memoria a D.
+- D=M: copia el valor de la memoria a D.
 
-M=D: guarda el valor de D en la memoria.
+- M=D: guarda el valor de D en la memoria.
 
 7. Leer del teclado y pintar en la pantalla
 
-Para leer el teclado se accede a la dirección KBD, que tiene el valor de la tecla presionada.
+- Para leer el teclado se accede a la dirección KBD, que tiene el valor de la tecla presionada.
 
-Para pintar en la pantalla se escribe un valor en una dirección de SCREEN, que controla los píxeles.
+- Para pintar en la pantalla se escribe un valor en una dirección de SCREEN, que controla los píxeles.
 
 ### 2: reflexión (metacognición)
 
