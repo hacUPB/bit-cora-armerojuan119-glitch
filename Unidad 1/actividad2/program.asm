@@ -1,10 +1,37 @@
-            @1
-			D=A
-			@2
-			D=D+A
-			@16
-			M=D
-			
-(END)
-            @END
-			0;JMP
+@SCREEN
+D=A
+@i
+M=D
+
+(READKEYBOARD)
+@KBD
+D=M
+@KEYPRESSED
+D;JNE
+@i
+D=M
+@SCREEN
+D=D-A
+@READKEYBOARD
+D;JLE
+@i
+M=M-1
+A=M
+M=0
+@READKEYBOARD
+0;JMP
+
+(KEYPRESSED)
+@i
+D=M
+@KBD
+D=D-A
+@READKEYBOARD
+D;JGE
+@16
+A=M
+M=-1
+@i
+M=M+1
+@READKEYBOARD
+0;JMP

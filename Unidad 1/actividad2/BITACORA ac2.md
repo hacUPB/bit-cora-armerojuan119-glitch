@@ -65,4 +65,7 @@ La CPU Hack ejecuta instrucciones de manera secuencial y controlada.
 La ROM define el comportamiento del programa y la RAM refleja los resultados de su ejecución.  
 Comprender el ciclo Fetch–Decode–Execute permite entender cómo funciona un procesador a bajo nivel.
 
+# ACTIVIDAD 3
+
+
   
