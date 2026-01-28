@@ -66,6 +66,23 @@ La ROM define el comportamiento del programa y la RAM refleja los resultados de 
 Comprender el ciclo Fetch–Decode–Execute permite entender cómo funciona un procesador a bajo nivel.
 
 # ACTIVIDAD 3
+En esta primera parte del código supe identificar que era lo que ejecutaba cada indicación dentro del programa.
+![alt text](<captura 2 primeros mov.png>)
 
+En esta parte del código creí que se iba a almacenar en la ram el número qque estaba en D pero no fué así, y me perdí un poco.
 
-  
+![alt text](<captura 2 segundos mvtos.png>)
+
+Mi confusión siguió hasta la la línea de código 9, en la línea 10 y 11, ya supe nuevamente que era lo que iba a ejecutar el código y el resultado que me iba a arrojar.
+
+![alt text](confusion.png)
+
+En esta parte del código estuve un poco perdido porque pensé ue la instrucción JGE iba a almacenar algo o a realizar alguna operación, pero en cambio repitió el programa como un bucle, lo que me lleva  a la pregunta... Por qué hay más código después si no se está usando.
+
+  ![alt text](......png)
+
+  ## Reporte actividad 3
+  1. Una instrucción que usa ALU es: **D=D-A**
+Esta instrucción realiza una *resta* entre el valor que está en el registro D y el valor del registro A.  
+La ALU se encarga de hacer esta operación matemática y guarda el resultado en D.  
+En el programa se utiliza para comparar direcciones de memoria, como cuando se revisan los límites de SCREEN o KBD.
