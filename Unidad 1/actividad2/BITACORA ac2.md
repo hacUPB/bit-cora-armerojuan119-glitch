@@ -17,13 +17,10 @@
   ---
   
 - 4
-# Fetch:
-  la CPU lee la instruccion que se encuentra en la ROM usando el contador del programa.
-  # Decode:
-  el programa identifica que tipo de intruccion es... A o C
+Fetch:la CPU lee la instruccion que se encuentra en la ROM usando el contador del programa.
+Decode: el programa identifica que tipo de intruccion es... A o C
    **A(@valor)  o   C(D=A, D=D+A, etc)**
-  # Execute:
-  ejecuta la operacion: **carga un valor, hace operaciones o guarda en memoria**
+Execute: ejecuta la operacion: **carga un valor, hace operaciones o guarda en memoria**
 
 ---
   
