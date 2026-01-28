@@ -67,19 +67,20 @@ Comprender el ciclo Fetch–Decode–Execute permite entender cómo funciona un 
 
 # ACTIVIDAD 3
 En esta primera parte del código supe identificar que era lo que ejecutaba cada indicación dentro del programa.
-![alt text](<captura 2 primeros mov.png>)
+
+![alt text](<imagenes/captura 2 primeros mov.png>)
 ---
 En esta parte del código creí que se iba a almacenar en la ram el número qque estaba en D pero no fué así, y me perdí un poco.
 
-![alt text](<captura 2 segundos mvtos.png>)
+![alt text](<../actividad2/imagenes/captura 2 segundos mvtos.png>)
 ---
 Mi confusión siguió hasta la la línea de código 9, en la línea 10 y 11, ya supe nuevamente que era lo que iba a ejecutar el código y el resultado que me iba a arrojar.
 
-![alt text](confusion.png)
+![alt text](imagenes/confusion.png)
 ---
 En esta parte del código estuve un poco perdido porque pensé ue la instrucción JGE iba a almacenar algo o a realizar alguna operación, pero en cambio repitió el programa como un bucle, lo que me lleva  a la pregunta... Por qué hay más código después si no se está usando.
 
-  ![alt text](......png)
+  ![alt text](imagenes/......png)
 ---
 
   ## Reporte actividad 3
