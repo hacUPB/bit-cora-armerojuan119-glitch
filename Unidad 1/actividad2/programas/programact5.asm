@@ -28,7 +28,7 @@ M=0
     @10
     D=M
     @11
-    M=M+D
+    M=D+M
 
     // contador = contador + 1
     @10
