@@ -318,7 +318,7 @@ D;JGT
 
 - Para pintar en la pantalla se escribe un valor en una dirección de SCREEN, que controla los píxeles.
 
-### 2: reflexión (metacognición)
+### reflexión (metacognición)
 
 1. Concepto más desafiante
 Los saltos y los loops, porque al inicio me confundía cuándo el programa realmente saltaba y cuándo no.
