@@ -1,37 +1,39 @@
-// Inicialización
-@i
-M=1      // i = 1 (Contador)
-@sum
-M=0      // sum = 0 (Acumulador)
+// --- Inicialización ---
+@1      // Valor inicial
+D=A
+@0      // Usaremos RAM[0] como contador (i)
+M=D
+
+@12     // Usaremos RAM[12] como acumulador (sum)
+M=0     // Limpiamos el resultado anterior por si acaso
 
 (LOOP)
-    // Comprobar si i > 5
-    @i
+    // --- Condición: si i > 5, terminar ---
+    @0
     D=M
     @5
     D=D-A    // D = i - 5
-    @WRITE_RESULT
-    D;JGT    // Si (i - 5) > 0, saltar a guardar resultado
+    @END_PROCESS
+    D;JGT    // Si D > 0 (i > 5), saltar al final
 
-    // Sumar: sum = sum + i
-    @i
-    D=M
-    @sum
-    M=D+M
+    // --- Sumar: RAM[12] = RAM[12] + i ---
+    @0
+    D=M      // D = i
+    @12
+    M=D+M    // sum = sum + i
 
-    // Incrementar: i = i + 1
-    @i
+    // --- Incrementar: i = i + 1 ---
+    @0
     M=M+1
 
     @LOOP
-    0;JMP    // Repetir ciclo
+    0;JMP    // Repetir
 
-(WRITE_RESULT)
-    @sum
-    D=M
-    @12
-    M=D      // Guardar el total en RAM[12]
+(END_PROCESS)
+    // --- Limpieza: Borrar el contador ---
+    @0
+    M=0      // Ponemos RAM[0] en 0 para que solo la RAM 12 tenga datos
 
-(END)
-    @END
-    0;JMP    // Bucle infinito de seguridad
+(INFINITE_LOOP)
+    @INFINITE_LOOP
+    0;JMP    // Bloqueo final
