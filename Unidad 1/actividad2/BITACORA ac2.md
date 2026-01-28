@@ -135,8 +135,64 @@ Esta condición permite decidir si se debe dibujar o borrar en la pantalla.
 
 ---
 # Actividad 4
+Código
+```jv
+@5 
+D=M 
+@10 
+D=D-A 
+@12 
+D;JLT 
+@0 
+D=A 
+@7 
+M=D 
+@16 
+0;JMP 
+@1 
+D=A 
+@7 
+M=D 
+```
+### Demostración funcionabilidad numero menor a 10.
+
+![alt text](<4 funcional menro que 10.png>)
+
+### Demostración funcionabilidad número mayor a 10
+
+![alt text](<4 funcional mayor que 10.png>)
+
+**intento #1**
+
+Elaboré un código que no me funcionó para nada
+![alt text](<codigo 4 no funcional.png>)
 
 
+**intento #2**
+
+usé D=A-D en vez de D=D-A y el programa no comparaba correctamente si RAM[5] es menor que 10.
+![alt text](<ERROR OPERACION.png>)
+
+**intento #3**
+
+utilicé JGT (mayor que cero) en lugar de JLT, osea que el programa estuvo ejecutando el if cuando RAM[5] sea mayor que 10, no menor, por lo cual el resultado almacenado en 7 se invirtió.
+![alt text](<imagenes/ERROR JGT.png>)
+
+**Observaciones**
+
+- Al ejecutar el programa, se nota que primero se carga el valor de RAM[5] y se le resta 10.
+
+- La instrucción D;JLT hace que el programa tome una decisión dependiendo del resultado de la resta.
+
+- Cuando la condición se cumple, el programa salta directamente a la parte donde se guarda el valor 1.
+
+- Cuando no se cumple, guarda el valor 0 y luego salta al final del programa.
+
+- El salto incondicional evita que se ejecuten instrucciones que no corresponden.
+
+```
+Este ejercicio me ayudó a entender cómo se puede representar una estructura if–else usando lenguaje ensamblador. Aprendí que el orden de las instrucciones es muy importante y que los saltos controlan el flujo del programa. Aunque el código es corto, cada línea cumple una función específica y si una sola instrucción estuviera mal, el resultado final cambiaría completamente. Este programa me ayudó a comprender mejor cómo la computadora toma decisiones usando comparaciones simples.
+```
 
 # Actividad 5
 
