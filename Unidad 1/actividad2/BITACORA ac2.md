@@ -173,7 +173,7 @@ utilicé JGT (mayor que cero) en lugar de JLT, osea que el programa estuvo ejecu
 ![alt text](<imagenes/ERROR JGT.png>)
 
 **Observaciones**
-- En los 3 intentos que hice la solución la guió la ia pero no se hizo en su totalidad, solo en las lineas que marcaban error  
+- En los 3 inconvenientes que tuve le pregunté a la ia que me ayudar a analizar el error y maneras para resolverlo.
 
 - Al ejecutar el programa, se nota que primero se carga el valor de RAM[5] y se le resta 10.
 
