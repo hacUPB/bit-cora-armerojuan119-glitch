@@ -229,9 +229,19 @@ M=0
     @INFINITE_LOOP
     0;JMP
 ```
+### intentos fallidos
+
+1. El programa entró en un bucle infinito, sumando números hasta que la RAM[12] se desbordó (overflow).
+
+![alt text](<imagenes/bucle infinito.png>)
+
+2. El compilador me daba error o simplemente no sumaba nada, investigando descubrí que el CPU no puede conectar dos celdas de RAM a la vez. Todo, absolutamente todo, tiene que pasar primero por el registro D para poder operarse en la ALU. Si no se toca el registro D, los datos no se mueven.
+
+3. Este error fue el más difícil de detectar porque el simulador no tira alerta, simplemente da un resultado basura. El fallo fatal fue usar D=A en lugar de D=M al intentar sumar el contador, estaba sumando 'direcciones' en lugar de datos.
 
 
-
+4. En este error se me almacenaban datos en casi 5 memorias, cuando solamente necesitaba el resultado operacional en la memoria 12, esto pasó porque permití que se guardaran datos en memorias en las que ellos debian estar momentaneamente para después volver a su valor inicial 0.
+![alt text](<imagenes/error act5 guarda muchos valores en las memorias.png>)
 
 
 # Actividad 6
