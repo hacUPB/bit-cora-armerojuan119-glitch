@@ -17,13 +17,10 @@
   ---
   
 - 4
-# Fetch:
-  la CPU lee la instruccion que se encuentra en la ROM usando el contador del programa.
-  # Decode:
-  el programa identifica que tipo de intruccion es... A o C
+Fetch:la CPU lee la instruccion que se encuentra en la ROM usando el contador del programa.
+Decode: el programa identifica que tipo de intruccion es... A o C
    **A(@valor)  o   C(D=A, D=D+A, etc)**
-  # Execute:
-  ejecuta la operacion: **carga un valor, hace operaciones o guarda en memoria**
+Execute: ejecuta la operacion: **carga un valor, hace operaciones o guarda en memoria**
 
 ---
   
@@ -190,7 +187,7 @@ Este ejercicio me ayudó a entender cómo se puede representar una estructura if
 ```
 
 # Actividad 5
-**¿Qué creo que va a pasar?:** 
+## **¿Qué creo que va a pasar?:** 
 - Espero que el programa realice 5 iteraciones ($1+2+3+4+5$). El resultado final en la dirección de memoria RAM[12] debe ser 15.
 - Al usar direcciones fijas (@0 para el contador e @12 para el total), predigo que no se activará ninguna celda a partir de la RAM[16]. Al final, la RAM[0] debería volver a 0 porque incluí una instrucción de limpieza.
 
@@ -321,7 +318,7 @@ D;JGT
 
 - Para pintar en la pantalla se escribe un valor en una dirección de SCREEN, que controla los píxeles.
 
-### 2: reflexión (metacognición)
+### reflexión (metacognición)
 
 1. Concepto más desafiante
 Los saltos y los loops, porque al inicio me confundía cuándo el programa realmente saltaba y cuándo no.
