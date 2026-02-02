@@ -8,4 +8,4 @@ se evidencian los códigos pero no capturas como evidencia de los intentos reali
 La estudiante tiene muy bien estructurado el documeto, todo tiene un orden preciso, es facil al momento de leer, sin confusiones y usa el markdown de una manera que permite que el documento se vea bien y sea util
 - Excelente (5.0)
 ## Comentario:
-un  muy buen documento, trataría de poner mas evidencias para el próximo pero lo demás excelente nhgtrewq   
+un  muy buen documento, trataría de poner mas evidencias para el próximo pero lo demás excelente.
