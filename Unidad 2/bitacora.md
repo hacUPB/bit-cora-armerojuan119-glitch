@@ -80,7 +80,7 @@ Primera y última predicción, supuse que guardando 15 en A y sumandole después
 ## Código act3 ensamblador
 
 ```As
-@16384
+@20000
 D=A
 @0
 M=D         
@@ -209,6 +209,10 @@ int main() {
 }
 
 ```
+Programa definitivo funcional
+
+![alt text](<imagenesun2/programa 3 def.png>)
+
 Predicciones
 - 1. La línea debería borrarse de RAM[16384] y aparecer en RAM[16385].
 
@@ -426,5 +430,5 @@ A=M es la INDIRECCIÓN: lee el puntero (16) y lo usa como dirección
 
 D=M lee el contenido de la dirección apuntada (lee el valor de a) y copiamos el valor de a a b usando el puntero p
 
-# actividad 5
+# actividad 6
 
