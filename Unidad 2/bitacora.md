@@ -209,10 +209,7 @@ int main() {
 }
 
 ```
-### Código funcional
-
-![alt text](imagenesun2/act3func.png)
-### Predicciones
+Predicciones
 - 1. La línea debería borrarse de RAM[16384] y aparecer en RAM[16385].
 
 ![alt text](<imagenesun2/cambio de valor.png>)
