@@ -1,81 +1,80 @@
-@16384      
+@16384
 D=A
-@pos        
-M=D         // pos = 16384
+@0
+M=D         
 
-// Dibujar la línea inicial
-@pos
+@0
 A=M
-M=-1        // Pantalla[pos] = -1 (todos los píxeles en 1)
+M=-1
 
 (LOOP)
-    // Leer el teclado
-    @24576      
-    D=M         // D = RAM[24576] (código de la tecla)
-    
-    // Verificar si se presionó 'd' (100 en ASCII)
-    @100
-    D=D-A       // D = tecla - 100
-    @DERECHA
-    D;JEQ       // Si D==0, saltar a DERECHA
-    
-    // Verificar si se presionó 'i' (105 en ASCII)
+   
     @24576
     D=M
-    @105
-    D=D-A       // D = tecla - 105
-    @IZQUIERDA
-    D;JEQ       // Si D==0, saltar a IZQUIERDA
     
-    // Si no se presionó ninguna tecla válida, volver a LOOP
+    @LOOP
+    D;JEQ
+    
+    @1
+    M=D
+    
+
+    @100
+    D=D-A
+    @MOVER_D
+    D;JEQ
+    
+
+    @1
+    D=M
+    @105
+    D=D-A
+    @MOVER_I
+    D;JEQ
+    
     @LOOP
     0;JMP
 
-(DERECHA)
-    // Borrar la posición actual
-    @pos
+(MOVER_D)
+
+    @0
     A=M
-    M=0         // Pantalla[pos] = 0
+    M=0
     
-    // Incrementar posición (mover derecha)
-    @pos
-    M=M+1       // pos = pos + 1
+ 
+    @0
+    M=M+1
     
-    // Dibujar en la nueva posición
-    @pos
+    @0
     A=M
-    M=-1        // Pantalla[pos] = -1
+    M=-1
     
-    // Esperar a que se suelte la tecla
-    @WAIT
+    @ESPERAR
     0;JMP
 
-(IZQUIERDA)
-    // Borrar la posición actual
-    @pos
+(MOVER_I)
+    @0
     A=M
-    M=0         // Pantalla[pos] = 0
+    M=0
     
-    // Decrementar posición (mover izquierda)
-    @pos
-    M=M-1       // pos = pos - 1
+
+    @0
+    M=M-1
     
-    // Dibujar en la nueva posición
-    @pos
+
+    @0
     A=M
-    M=-1        // Pantalla[pos] = -1
+    M=-1
     
-    // Esperar a que se suelte la tecla
-    @WAIT
+    @ESPERAR
     0;JMP
 
-(WAIT)
-    // Esperar hasta que NO haya ninguna tecla presionada
+(ESPERAR)
+  
     @24576
     D=M
-    @WAIT
-    D;JNE       // Si D != 0 (hay tecla presionada), seguir esperando
+    @ESPERAR
+    D;JNE
     
-    // Cuando se suelta la tecla, volver al loop principal
     @LOOP
     0;JMP
