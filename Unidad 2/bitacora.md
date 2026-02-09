@@ -30,6 +30,7 @@ class Program
     }
 }
 ```
+## programa funiconal
 Programa funcional sin errores, la guía fué clara por lo que se solucionó sin hacer pruebas.
 
 ![alt text](<imagenesun2/PROGRAMA1 NINGUN INCONVENIENTE.png>)
@@ -72,7 +73,7 @@ Primera y última predicción, supuse que guardando 15 en A y sumandole después
 
 ![alt text](<imagenesun2/unidad 2 2.png>)
 
-Programa funcional
+### Programa funcional
 ![alt text](imagenesun2/ejercuni2solve.png)
 
 # ACTIVIDAD 3
@@ -208,7 +209,10 @@ int main() {
 }
 
 ```
-Predicciones
+### Código funcional
+
+![alt text](imagenesun2/act3func.png)
+### Predicciones
 - 1. La línea debería borrarse de RAM[16384] y aparecer en RAM[16385].
 
 ![alt text](<imagenesun2/cambio de valor.png>)
@@ -234,4 +238,196 @@ Necesito volver a leer RAM[24576] o usar RAM[1].
 - 3. borrador con lo necesario para mover con cualquier tecla  la derecha.
 
 ![alt text](<imagenesun2/intento act3.png>)
+
+# actividad 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# actividad 5
+## traducción programa 1.
+```As
+@10
+D=A
+@16        
+M=D       
+@16        
+D=A        
+M=D        
+
+@20
+D=A        
+@17        
+A=M        
+M=D      
+(END)
+@END
+0;JMP 
+
+```
+### Paso a paso
+- PASO 1: Crear variable a = 10
+
+PREDICCIÓN: La variable a debe valer 10
+
+EJECUCIÓN:
+
+![alt text](<imagenesun2/paso 1.png>)
+
+OBSERVACIÓN:
+
+RAM[16] = 10 
+
+REFLEXION: La variable a está en la dirección de memoria 16 y contiene el valor 10.
+
+- PASO 2: Hacer que p apunte a a (p = &a)
+
+PREDICCIÓN: El puntero p debe guardar el número 16 (que es la dirección donde está a)
+
+EJECUCIÓN:
+
+![alt text](imagenesun2/PASO2.png)
+
+OBSERVACIÓN:
+
+RAM[16] = 10 (la variable a)
+
+RAM[17] = 16 (el puntero p contiene "16")
+
+REFLEXIÓN:
+
+Usamos D=A porque queremos la DIRECCIÓN (16), no el contenido (10)
+El puntero p ahora "apunta" a a porque contiene su dirección
+
+
+- PASO 3: Modificar a través del puntero (*p = 20)
+
+PREDICCIÓN: La variable a debe cambiar de 10 a 20
+
+EJECUCIÓN:
+
+![alt text](<imagenesun2/PASO 3.png>)
+
+OBSERVACIÓN:
+
+RAM[16] = 20  (cambió de 10 a 20)
+
+RAM[17] = 16 (el puntero sigue igual)
+
+REFLEXIÓN:
+
+A=M es la INDIRECCIÓN: lee el puntero (16) y lo usa como dirección
+
+Modificamos a sin tocarla directamente, usando el puntero p
+
+## traducción programa 2.
+```As
+@10
+D=A
+@16
+M=D
+
+@5
+D=A
+@17
+M=D
+
+@16
+D=A
+@18
+M=D
+
+
+@18
+A=M
+D=M
+@17
+M=D
+
+(END)
+@END
+0;JMP
+```
+### Paso a paso
+- PASO 1: Crear variable a = 10
+
+PREDICCIÓN: La variable a debe valer 10
+
+EJECUCIÓN:
+
+![alt text](<imagenesun2/PASO 1ACT2.png>)
+
+OBSERVACIÓN: RAM[16] = 10 
+
+REFLEXIÓN: La variable a está en la dirección de memoria 16 y contiene el valor 10.
+
+- PASO 2: Crear variable b = 5
+
+PREDICCIÓN: La variable b debe valer 5
+
+EJECUCIÓN:
+
+![alt text](<imagenesun2/PASO2 ACT2.png>)
+
+OBSERVACIÓN:
+
+RAM[16] = 10 (la variable a)
+RAM[17] = 5 (la variable b)
+
+REFLEXIÓN: Ahora tenemos dos variables: a en RAM[16] y b en RAM[17].
+
+- PASO 3: Hacer que p apunte a a (p = &a)
+
+PREDICCIÓN: El puntero p debe guardar el número 16 (que es la dirección donde está a)
+
+EJECUCIÓN:
+
+![alt text](<imagenesun2/PASO 3 ACT3.png>)
+
+OBSERVACIÓN:
+
+RAM[16] = 10 (la variable a)
+RAM[17] = 5 (la variable b)
+RAM[18] = 16 (el puntero p contiene "16")
+
+REFLEXIÓN: Usamos D=A porque queremos la DIRECCIÓN (16), no el contenido (10) y el puntero p ahora "apunta" a a porque contiene su dirección.
+
+
+- PASO 4: Leer a través del puntero (b = *p)
+
+PREDICCIÓN: La variable b debe cambiar de 5 a 10 (copiando el valor de a)
+
+EJECUCIÓN:
+
+![alt text](<imagenesun2/PASO 4 ACT4.png>)
+
+OBSERVACIÓN:
+
+RAM[16] = 10 (la variable a sigue igual)
+RAM[17] = 10 (b cambió de 5 a 10)
+RAM[18] = 16 (el puntero sigue igual)
+
+REFLEXIÓN:
+
+A=M es la INDIRECCIÓN: lee el puntero (16) y lo usa como dirección
+
+D=M lee el contenido de la dirección apuntada (lee el valor de a) y copiamos el valor de a a b usando el puntero p
+
+# actividad 5
 
