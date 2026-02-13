@@ -446,7 +446,82 @@ A=M es la INDIRECCIÓN: lee el puntero (16) y lo usa como dirección
 D=M lee el contenido de la dirección apuntada (lee el valor de a) y copiamos el valor de a a b usando el puntero p
 
 # actividad 6
-Prueba 1.
+PRUEBA 1: Inicializar el arreglo en memoria
+
+Característica implementada: guardar datos consecutivos desde RAM[16].
+```
+@16
+M=1
+@17
+M=2
+@18
+M=3
+@19
+M=4
+@20
+M=5
+@21
+M=6
+@22
+M=7
+@23
+M=8
+@24
+M=9
+@25
+M=10
+```
+
+Cómo lo comprobé:
+Ejecuté paso a paso en el simulador y verifiqué que las posiciones 16–25 contuvieran los valores correctos.
+
+PRUEBA 2: Inicializar variables
+
+Necesitamos:
+
+- `sum`
+- `ptr (puntero al arreglo)`
+- `j`
+
+
+```
+@sum
+M=0
+
+@j
+M=0
+
+@ptr
+M=16  
+```
+Cómo lo comprobé:
+Verifiqué que:
+
+- sum = `0`
+
+- j = `0`
+
+- ptr = `16`
+
+PRUEBA 3: Acceder a arr [j] usando puntero
+
+Idea:
+```
+dirección = ptr + j
+```
+
+En Hack:
+```
+@ptr
+D=M       
+
+@j
+A=D+M     
+
+D=M        
+```
+Cómo comprobé:
+comprobé con `j = 0`, luego `j = 1`, y verifiqué que `D` tomara los valores correctos del arreglo.
 
 # Actividad 7: Autoevaluación
 **Mirando hacia adentro: autoevaluación de conceptos y proceso**
