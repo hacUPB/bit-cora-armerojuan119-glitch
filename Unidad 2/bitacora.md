@@ -242,6 +242,7 @@ Necesito volver a leer RAM[24576] o usar RAM[1].
 
 # actividad 4
 
+## Código act4
 ```As
 M=0       
 
@@ -523,6 +524,67 @@ D=M
 Cómo comprobé:
 comprobé con `j = 0`, luego `j = 1`, y verifiqué que `D` tomara los valores correctos del arreglo.
 
+## Código act6
+```
+@16
+M=1
+@17
+M=2
+@18
+M=3
+@19
+M=4
+@20
+M=5
+@21
+M=6
+@22
+M=7
+@23
+M=8
+@24
+M=9
+@25
+M=10
+
+@sum
+M=0
+
+@j
+M=0
+
+@ptr
+M=16
+
+(LOOP)
+
+@j
+D=M
+@10
+D=D-A
+@END
+D;JGE      
+
+@ptr
+D=M
+@j
+A=D+M
+D=M
+
+@sum
+M=M+D
+
+@j
+M=M+1
+
+@LOOP
+0;JMP
+
+(END)
+@END
+0;JMP
+
+```
 # Actividad 7: Autoevaluación
 **Mirando hacia adentro: autoevaluación de conceptos y proceso**
 1. ¿Cómo se representa y manipula un puntero en el lenguaje ensamblador de Hack?
