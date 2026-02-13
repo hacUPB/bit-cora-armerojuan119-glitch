@@ -242,25 +242,40 @@ Necesito volver a leer RAM[24576] o usar RAM[1].
 
 # actividad 4
 
+```As
+M=0       
 
 
+M=1      
 
+D=M        
+@100
+D=D-A    
 
+D;JGT     
 
+D=M        
+@sum
+M=D+M  
 
+@i
+M=M+1   
 
+0;JMP      
 
+@FOR_END
+0;JMP 
+```
+**CONCLUSIONES**
+- El ciclo for y el ciclo while son equivalentes a nivel lógico.
 
+- En ensamblador no existen estructuras de alto nivel como for o while.
 
+- Ambos ciclos se traducen a la misma estructura basada en etiquetas y saltos condicionales.
 
+- La diferencia entre for y while es solo sintáctica en lenguajes de alto nivel.
 
-
-
-
-
-
-
-
+- En bajo nivel, todo se reduce a comparaciones y saltos.
 # actividad 5
 ## traducción programa 1.
 ```As
@@ -431,4 +446,37 @@ A=M es la INDIRECCIÓN: lee el puntero (16) y lo usa como dirección
 D=M lee el contenido de la dirección apuntada (lee el valor de a) y copiamos el valor de a a b usando el puntero p
 
 # actividad 6
+Prueba 1.
 
+# Actividad 7: Autoevaluación
+1. ¿Cómo se representa y manipula un puntero en el lenguaje ensamblador de Hack?
+
+En el lenguaje ensamblador de Hack, un puntero es simplemente una variable que almacena una dirección de memoria. No existe un tipo especial llamado "puntero"; es una posición de memoria que guarda otra dirección.
+
+**Operación equivalente a** `p = &a`
+
+Significa guardar la dirección de la variable `a` dentro de `p`.
+
+En ensamblador:
+
+```asm
+@a
+D=A      // D = dirección de a
+@p
+M=D      // p = &a
+```
+Aquí se usa A para obtener la dirección simbólica de a, y luego se guarda en p.
+
+Operación equivalente a*p = 20
+
+Significa escribir el valor 20 en la dirección almacenada en p.
+```
+
+@20
+D=A
+@p
+A=M      // A = dirección guardada en p
+M=D      // *p = 20
+
+```
+Primero se carga 20 en el registro D. Luego se cambia el registro A para que apunte a la dirección contenida en p, y finalmente se escribe el valor en esa dirección.

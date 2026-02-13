@@ -1,41 +1,57 @@
-// sum = 0
-@R1
+@16
+M=1
+@17
+M=2
+@18
+M=3
+@19
+M=4
+@20
+M=5
+@21
+M=6
+@22
+M=7
+@23
+M=8
+@24
+M=9
+@25
+M=10
+
+@sum
 M=0
 
-// j = 0
-@R0
+@j
 M=0
 
-// base del arreglo = 0
-@0
-D=A
-@R2
-M=D
+@ptr
+M=16
 
 (LOOP)
-// if j == 10 goto END
-@R0
+
+@j
 D=M
 @10
 D=D-A
 @END
-D;JEQ
+D;JGE      
 
-// sum = sum + arr[j]
-@R2
+@ptr
 D=M
-@R0
-A=D+M   // A = base + j
-D=M     // D = arr[j]
-@R1
-M=+D M  // sum += arr[j]
-s
-// j++
-@R0
+@j
+A=D+M
+D=M
+
+@sum
+M=M+D
+
+@j
 M=M+1
 
 @LOOP
 0;JMP
 
 (END)
-// resultado final queda en R1 (RAM[1])
+@END
+0;JMP
