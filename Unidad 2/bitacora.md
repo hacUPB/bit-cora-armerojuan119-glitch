@@ -449,6 +449,7 @@ D=M lee el contenido de la dirección apuntada (lee el valor de a) y copiamos el
 Prueba 1.
 
 # Actividad 7: Autoevaluación
+**Mirando hacia adentro: autoevaluación de conceptos y proceso**
 1. ¿Cómo se representa y manipula un puntero en el lenguaje ensamblador de Hack?
 
 En el lenguaje ensamblador de Hack, un puntero es simplemente una variable que almacena una dirección de memoria. No existe un tipo especial llamado "puntero"; es una posición de memoria que guarda otra dirección.
@@ -461,13 +462,13 @@ En ensamblador:
 
 ```asm
 @a
-D=A      // D = dirección de a
+D=A     
 @p
-M=D      // p = &a
+M=D      
 ```
 Aquí se usa A para obtener la dirección simbólica de a, y luego se guarda en p.
 
-Operación equivalente a*p = 20
+**Operación equivalente a** `p = 20`
 
 Significa escribir el valor 20 en la dirección almacenada en p.
 ```
@@ -475,8 +476,63 @@ Significa escribir el valor 20 en la dirección almacenada en p.
 @20
 D=A
 @p
-A=M      // A = dirección guardada en p
-M=D      // *p = 20
+A=M      
+M=D      
 
 ```
 Primero se carga 20 en el registro D. Luego se cambia el registro A para que apunte a la dirección contenida en p, y finalmente se escribe el valor en esa dirección.
+
+2. ¿Cómo implementarías el acceso a un elemento de un arreglo como arr [j]?
+
+Para acceder a arr [j] en ensamblador se necesitan dos elementos:
+
+- La dirección base del arreglo.
+
+- El índice j.
+
+El acceso se realiza sumando la dirección base con el índice:
+```
+dirección = base + j
+```
+
+En ensamblador:
+```
+@base
+D=M       
+
+@j
+A=D+M      
+
+D=M        
+```
+
+La dirección base indica dónde comienza el arreglo en memoria. El índice j indica cuántas posiciones desplazarse desde esa base.
+
+**Parte 2: Reflexión sobre el proceso (Metacognición)**
+
+**1. ¿Cuál fue el concepto más abstracto o difícil de traducir de C++ a ensamblador?**
+
+El concepto más difícil fue el de punteros, porque obligan a pensar en direcciones de memoria en lugar de valores. En C++ el uso de punteros parece simple, pero en ensamblador se debe manipular explícitamente la dirección almacenada.
+
+Para entenderlo, fue útil dibujar la memoria como una tabla, seguir los valores paso a paso en el simulador y probar ejemplos pequeños antes de construir el programa completo.
+
+---
+
+**2. ¿Cómo ayudó construir el programa paso a paso mediante pruebas?**
+
+Trabajar paso a paso permitió reducir la complejidad. Primero se probó la inicialización del arreglo, luego las variables, después el acceso con punteros y finalmente el ciclo completo.
+
+Este enfoque ayudó a detectar errores rápidamente y a entender exactamente qué hacía cada bloque de código antes de continuar con el siguiente.
+
+---
+
+**3. ¿Qué concepto de bajo nivel te sientes más seguro de identificar cuando lo veas implementado en C++?**
+
+Ahora es más fácil identificar en C++:
+
+- Que un arreglo es memoria contigua.
+- Que `arr[j]` es realmente aritmética de direcciones.
+- Que los ciclos `for` y `while` se convierten en comparaciones y saltos.
+- Que los punteros son variables que almacenan direcciones.
+
+Esto permite entender mejor qué ocurre internamente cuando se ejecuta un programa en un lenguaje de alto nivel.
