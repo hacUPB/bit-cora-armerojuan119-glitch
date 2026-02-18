@@ -74,6 +74,7 @@ int main() {
     return 0;
     }
 ```
+Está intentando encontrar una ubicacion con el puntero para escribir ahí y ese es un lugar en el que no se puede realizar la acción ya que es de solo lectura
 ### Experimento 3
 ```C++
 
