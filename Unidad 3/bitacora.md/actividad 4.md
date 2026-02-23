@@ -22,6 +22,8 @@ int main() {
 ```
 El experimento compila pero automaticamente deja de funcionar porque en la linea ` *reinterpret_cast<int*>(ptr) = 0;`, el sistema operativo detecta que se está escribiendo en una zona que es solamente  de lectura y termina el programa.
 
+![alt text](<../imagenes/experimento1 crash.png>)
+
 ### Experimento 2
 ```C++
 #include <iostream>
@@ -47,6 +49,10 @@ int main() {
 ```
 El string `"Hola, memoria de solo lectura"` se guarda en memoria de solo lectura.
 Aunque se haga un cast a `char`, sigue siendo memoria protegida.
+
+![alt text](../imagenes/experiemnto2.png)
+![alt text](<../imagenes/datos incoherentes exp2.png>)
+
 ### Experimento 3
 ```C++
 #include <iostream>
@@ -80,12 +86,15 @@ El programa funciona normalmente y los valores cambian.
 
 - `global_no_inicializada` empieza en **0** → luego **666**
 
+![alt text](<../imagenes/exp3 debugg.png>)
 Por qué:
 Las variables globales están en el segmento de datos, que sí es modificable.
 
 - **Inicializadas** → segmento `.data`
 
 - **No inicializadas** → segmento `.bss`
+
+![alt text](<../imagenes/experimetno3 funciona.png>)
 
 ### Experimento 4
 ```C++
@@ -113,11 +122,13 @@ int main() {    // Variable local (stack)
 ```
 El código no compila.
 
+![alt text](../imagenes/exp4.png)
 Por que `var_estatica` existe solo dentro de la función.
 Aunque sea `static`, su alcance sigue siendo local.
 
 **No se puede acceder a ella desde main.**
 
+![alt text](<../imagenes/experimento 4.png>)
 ---
 ¿Qué pasa con las variables cada que entras y sales de la función?
 
@@ -173,6 +184,8 @@ En cada iteración del ciclo:
 - `var_no_estatica` siempre imprime **100**.
 - `var_estatica` aumenta en cada llamada: **100, 101, 102, 103…**
 
+![alt text](../imagenes/experimento5.png)
+
 Esto ocurre porque:
 
 - La variable local normal se crea y destruye cada vez que se llama la función, por lo que siempre vuelve a 100.
@@ -217,6 +230,8 @@ Se puede:
 
 Por que se liberó la memoria. Entonces el puntero queda apuntando a un lugar que ya no es de nuestro dominio.
 
+![alt text](<../imagenes/impresion basura 6.png>)
+
 ---
  Esta es la línea que genera error `cout << arrayHeap[0] << endl;`
   Diferencias Heap vs Stack
@@ -247,3 +262,5 @@ Porque el compilador necesita saber que liberas varios elementos.
 - `delete[]` → arreglo  
 
 Si usas el incorrecto → **comportamiento indefinido**
+
+![alt text](../imagenes/experimento6.png)
