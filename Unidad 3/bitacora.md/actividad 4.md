@@ -1,32 +1,3 @@
-# Actividad 3
-### Organización de Memoria en C++
-
-| Segmento | Contenido | Descripción |
-|----------|-----------|-------------|
-| **SEGMENTO DE CÓDIGO (TEXT)** | `main()` | Función principal |
-| | `suma(int, int)` | Función suma |
-| | `crearArrayHeap(int)` | Función crear array |
-| | `funcionConStatic()` | Función con variable estática |
-| **VARIABLES GLOBALES Y ESTÁTICAS** | `global_inicializada = 42` | Variable global inicializada |
-| | `global_no_inicializada` | Variable global sin inicializar |
-| | `var_estatica (static) = 100` | Variable estática |
-| | `mensaje_ro (puntero global)` | Puntero global a string |
-| **HEAP** | `arrayHeap → new int[tamArray]` | Array dinámico |
-| | `arr` (dentro de `crearArrayHeap()`) | Puntero que apunta al heap |
-| **STACK** | **`main()`:** | |
-| | `a` | Variable local |
-| | `b` | Variable local |
-| | `c` | Variable local |
-| | `tamArray` | Variable local |
-| | `arrayHeap` (puntero local) | Puntero local al heap |
-| | **`suma()`:** | |
-| | `a` (parámetro) | Parámetro de función |
-| | `b` (parámetro) | Parámetro de función |
-| | `c` (variable local) | Variable local |
-| | **`crearArrayHeap()`:** | |
-| | `tam` (parámetro) | Parámetro de función |
-| | `arr` (puntero local) | Puntero local al heap |
-
 # Actividad 4
 ### Experimento 1
 ```C++
@@ -245,3 +216,34 @@ Se puede:
 - Crashear
 
 Por que se liberó la memoria. Entonces el puntero queda apuntando a un lugar que ya no es de nuestro dominio.
+
+---
+ Esta es la línea que genera error `cout << arrayHeap[0] << endl;`
+  Diferencias Heap vs Stack
+
+---
+
+| Stack        | Heap           |
+|--------------|---------------|
+| Automático   | Manual        |
+| Rápido       | Más lento     |
+| Tamaño limitado | Más grande |
+| Se limpia solo | Debes liberar |
+
+---
+Consecuencias de no liberar memoria
+
+**Memory leak**
+
+- El programa consume memoria sin devolverla  
+- Puede volverse lento o crashear  
+
+---
+¿Por qué usar `delete[]` para arreglos?
+
+Porque el compilador necesita saber que liberas varios elementos.
+
+- `delete` → un objeto  
+- `delete[]` → arreglo  
+
+Si usas el incorrecto → **comportamiento indefinido**
