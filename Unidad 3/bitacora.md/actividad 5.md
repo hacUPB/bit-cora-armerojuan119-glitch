@@ -1,12 +1,8 @@
-# 📘 Unidad: Gestión de Memoria en C++
+# Actividad 5: 
 
----
+## ¿Qué ocurre al copiar un objeto?
 
-# 🧪 Actividad 5: Copia de objetos y ubicación en memoria
-
-## 1️⃣ ¿Qué ocurre al copiar un objeto?
-
-### 🔹 En C++
+### En C++
 
 ```cpp
 Punto copia = original;
@@ -26,7 +22,7 @@ Son independientes.
 
 ---
 
-### 🔹 En C#
+### En C#
 
 ```csharp
 Punto copia = original;
@@ -43,18 +39,18 @@ En memoria:
 
 ---
 
-## 2️⃣ ¿Qué es `copia`?
+## ¿Qué es `copia`?
 
 | Lenguaje | ¿Qué es? | ¿Es independiente? |
 |----------|----------|-------------------|
-| C++ | Objeto nuevo en el stack | ✅ Sí |
-| C# | Referencia al mismo objeto | ❌ No |
+| C++ | Objeto nuevo en el stack |  Sí |
+| C# | Referencia al mismo objeto |  No |
 
 ---
 
-# 🧪 Actividad Integradora – Predicción
+## Actividad Integradora – Predicción
 
-## 🔮 Salida esperada
+**Salida esperada**
 
 ```
 --- Experimento con paso de parámetros ---
@@ -78,9 +74,9 @@ Valor final de val_C: 30
 
 ---
 
-## 🧠 Mapa conceptual de memoria
+### Mapa conceptual de memoria
 
-### Stack
+**Stack**
 - `val_A`
 - `val_B`
 - `val_C`
@@ -97,7 +93,7 @@ Valor final de val_C: 30
 
 ---
 
-## 🔎 ¿Por qué `contador_estatico` recuerda su valor?
+## ¿Por qué `contador_estatico` recuerda su valor?
 
 - Vive en el segmento de datos estáticos.
 - Se inicializa una sola vez.

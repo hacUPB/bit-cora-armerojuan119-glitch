@@ -1,6 +1,6 @@
-# 🧪 Actividad 6: Hola Objeto
+# Actividad 6:
 
-## Constructor vs Destructor
+### Constructor vs Destructor
 
 | Constructor | Destructor |
 |------------|------------|
@@ -9,14 +9,14 @@
 
 ---
 
-## Clase vs Objeto
+### Clase vs Objeto
 
 - Clase → Plantilla
 - Objeto → Instancia real en memoria
 
 ---
 
-## Diferencia C++ vs C#
+### Diferencia C++ vs C#
 
 | C++ | C# |
 |------|------|
@@ -26,7 +26,7 @@
 
 ---
 
-## ¿Qué es `p`?
+### ¿Qué es `p`?
 
 - En C++ → Objeto real en el stack.
 - En C# → Referencia a objeto en el heap.

@@ -1,6 +1,6 @@
-# 🧪 Actividad 8: Paso por valor, referencia y puntero
+# Actividad 8: Paso por valor, referencia y puntero
 
-## Paso por valor
+### Paso por valor
 
 ```cpp
 void cambiarNombre(Punto p, string nuevoNombre)
@@ -12,7 +12,7 @@ void cambiarNombre(Punto p, string nuevoNombre)
 
 ---
 
-## Paso por referencia
+### Paso por referencia
 
 ```cpp
 void cambiarNombre(Punto& p, string nuevoNombre)
@@ -23,7 +23,7 @@ void cambiarNombre(Punto& p, string nuevoNombre)
 
 ---
 
-## Paso por puntero
+### Paso por puntero
 
 ```cpp
 void cambiarNombre(Punto* p, string nuevoNombre)
@@ -34,7 +34,7 @@ void cambiarNombre(Punto* p, string nuevoNombre)
 
 ---
 
-## Resumen
+### Resumen
 
 | Tipo | Copia | Modifica original |
 |------|-------|------------------|

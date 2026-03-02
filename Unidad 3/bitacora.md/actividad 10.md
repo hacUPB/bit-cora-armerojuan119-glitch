@@ -1,48 +1,39 @@
-Actividad 10 – Ciclo de vida
-Stack
+# Actividad 10: Ciclo de vida
 
-Constructor al entrar al bloque.
+### Objeto en Stack
 
-Destructor automático al salir.
+- Constructor al entrar.
+- Destructor automático al salir del bloque.
 
-Heap
+### Objeto en Heap
 
-Constructor con new.
+- Constructor con `new`.
+- Destructor solo con `delete`.
 
-Destructor solo con delete.
+---
 
-¿Por qué pBloque2 no se destruye?
+### Actividad Integradora: Personaje
 
-Porque:
+### Problemas detectados
 
-pBloque2 es solo un puntero.
+### Memory Leak
+- Se usa `new int[3]`.
+- No hay destructor.
+- Nunca se hace `delete[]`.
 
-El objeto está en el heap.
-
-El heap no depende del bloque.
-
-🎮 Actividad Integradora – Personaje
-🔴 Problema 1: Memory leak
-
-No hay destructor → nunca se hace delete[] estadisticas.
-
-Consecuencia:
-
-Fuga de memoria.
-
-🔴 Problema 2: Copia superficial
+### Copia superficial
+```cpp
 Personaje copiaHeroe = heroe;
+```
+- Se copia el puntero.
+- Ambos apuntan al mismo arreglo.
+- Posible doble liberación si hubiera destructor.
 
-Se copia el puntero.
+---
 
-Ambos apuntan al mismo arreglo.
+### Solución sin Regla de los Tres
 
-Si hubiera destructor → doble delete.
-
-✅ Solución SIN usar regla de los tres
-
-Evitar new completamente:
-
+```cpp
 class Personaje {
 public:
     std::string nombre;
@@ -65,44 +56,40 @@ public:
                   << "]" << std::endl;
     }
 };
-✅ ¿Por qué funciona?
+```
 
-No usamos heap.
+---
 
-No hay punteros.
+### ¿Por qué funciona?
 
-Copias ahora son profundas automáticamente.
+- No se usa memoria dinámica.
+- No hay punteros.
+- Las copias son independientes.
+- No hay fugas.
+- No hay double free.
 
-No hay fugas.
+---
 
-No hay double free.
+### Concepto más crítico
 
-🎯 Concepto Más Crítico
+Entender Stack vs Heap.
 
-👉 Entender stack vs heap.
+Porque determina:
+- Ciclo de vida
+- Destrucción
+- Memory leaks
+- Crashes
 
-Porque:
+---
 
-Determina ciclo de vida.
-
-Determina destrucción.
-
-Determina errores como leaks y crashes.
-
-🧠 Diferencia clave C++ vs C#
+### Diferencia clave C++ vs C#
 
 En C++:
-
-Un objeto puede vivir en stack.
-
-Tienes control total.
-
-Pero también responsabilidad total.
+- El objeto puede vivir en stack.
+- Control total.
+- Mayor responsabilidad.
 
 En C#:
-
-Todo vive en heap.
-
-Hay Garbage Collector.
-
-Menos control, menos errores manuales.
+- Objetos siempre en heap.
+- Garbage Collector.
+- Menos control manual.

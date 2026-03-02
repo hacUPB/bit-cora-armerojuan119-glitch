@@ -1,6 +1,6 @@
-# 🧪 Actividad 7: Objetos en Stack vs Heap
+# Actividad 7: 
 
-## Diferencias
+### Diferencias
 
 | Stack | Heap |
 |--------|------|
@@ -10,11 +10,11 @@
 
 ---
 
-## `pStack`
+### `pStack`
 
 Es un objeto real almacenado en el stack.
 
-## `pHeap`
+### `pHeap`
 
 Es un puntero en el stack que guarda la dirección de un objeto en el heap.
 
