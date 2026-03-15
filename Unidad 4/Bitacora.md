@@ -437,6 +437,9 @@ int main() {
 
 ```
 ### Qué aprendí
+
+![alt text](escrito.jpeg)
+
 **2.¿Qué hice bien en esta unidad que debo continuar haciendo?**
 
 Durante esta unidad intenté analizar primero el código antes de modificarlo, lo que me ayudó a entender mejor cómo funcionan las estructuras de datos.
