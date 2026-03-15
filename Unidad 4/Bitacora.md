@@ -459,3 +459,7 @@ También debo practicar más gestión de memoria en **C++**, porque trabajar con
 Otra cosa que puedo mejorar es documentar mejor mi código, agregando comentarios que expliquen qué hace cada parte.
 
 Finalmente, quiero empezar a experimentar más con openFrameworks, ya que permite crear aplicaciones visuales interesantes que combinan programación y creatividad.
+
+### Actividad funcional
+[Código funcional](https://youtu.be/8lsy0yjOD84)
+
