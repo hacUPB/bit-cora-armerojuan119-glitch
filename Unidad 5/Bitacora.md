@@ -85,7 +85,7 @@ public class Programa{
 		    }
 		}
 ```
-### **Encapsulamiento:**
+### **1. Encapsulamiento:**
 
 - Señala una línea de código que sea un ejemplo claro de encapsulamiento y explica por qué lo es.
 ```csharp
@@ -97,7 +97,7 @@ private string nombre;
 
 Por que se quiere **encapsular el atributo para que nadie tenga acceso a el** pero se **deja libre un espacio mendiante el** `public` para que los **metodos si puedan acceder a los atributos.**
 
-### **Herencia:**
+### **2. Herencia:**
 
 - ¿Cómo se evidencia la herencia en la clase Circulo?
 ```csharp
@@ -108,7 +108,7 @@ Aquí la clase `Circulo` está heredando de la clase `Figura`. Esto significa qu
 
 Almacena también el **método** `Dibujar` y el **atributo** `Nombre`
 
-### **Polimorfismo:**
+### **3. Polimorfismo:**
 
 - Observa el bucle `foreach`. La variable `fig` es de tipo Figura, pero a veces contiene un Circulo y otras un Rectangulo. Cuando se llama a `fig.Dibujar()`, el programa ejecuta la versión correcta.
 
@@ -123,7 +123,7 @@ Esto permite que **diferentes objetos respondan de forma distinta a la misma lla
 
 ## Parte 3: hipótesis sobre la implementación
 
-- ### **Memoria y herencia:**
+- ### **1. Memoria y herencia:**
 
 **cuando creas un objeto Rectangulo, este tiene Base, Altura y también Nombre. ¿Cómo te imaginas que se organizan esos tres datos en la memoria del computador para formar un solo objeto?**
 
@@ -135,7 +135,7 @@ De esta manera todo queda **dentro del mismo objeto en memoria**, pero incluyend
 
 Algo así como una **estructura continua en memoria** que contiene todos los valores del objeto.
 
-- ### **El mecanismo del polimorfismo:** 
+- ### **2. El mecanismo del polimorfismo:** 
 **pensemos de nuevo en la llamada fig.Dibujar(). El compilador solo sabe que fig es una Figura. ¿Cómo decide el programa, mientras se está ejecutando, si debe llamar al Dibujar del Circulo o al del Rectangulo? Lanza algunas ideas o hipótesis.**
 
 **Respuesta:** Cuando el programa ejecuta `fig.Dibujar()`, aunque la variable `fig` sea de tipo `Figura`, en realidad puede estar apuntando a un objeto de tipo `Circulo` o `Rectangulo`.
@@ -146,7 +146,7 @@ Es decir, si el objeto realmente es un `Circulo`, se ejecuta `Circulo.Dibujar()`
 
 Es como si cada objeto guardara **alguna información interna que indica a qué clase pertenece**, y con eso el programa sabe qué método usar.
 
-- ### **La barrera del encapsulamiento:** 
+- ### **3. La barrera del encapsulamiento:** 
 **¿Cómo crees que el compilador logra que no puedas acceder a un miembro private desde fuera de la clase? ¿Es algo que se revisa cuando escribes el código, o es una protección que existe mientras el programa se ejecuta? ¿Por qué piensas eso?**
 
 **Respuesta:** Yo pienso que el compilador revisa esto **cuando se está escribiendo y compilando el código**. Si un atributo está marcado como `private`, el compilador simplemente **no permite que otra clase lo use directamente**.
