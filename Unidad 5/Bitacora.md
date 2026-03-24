@@ -159,3 +159,73 @@ De esta manera se **protege la información del objeto** y se obliga a que los d
 
 ## Parte 4: y tu autoevaluación y primeras preguntas
 Voy a seguir la ruta guiada
+
+# Actividad 2
+**Mi análisis de la aplicación**
+
+Esta aplicación que hecha en `openFrameworks` simula fuegos artificiales con partículas que suben y luego explotan de diferentes formas. Al principio me parecía un poco confuso, pero cuando revisé el código paso a paso entendí cómo funciona todo.
+
+
+**Qué hace la app**
+
+- Las partículas (`RisingParticle`) nacen desde la parte inferior central de la pantalla y suben hacia arriba.  
+- Cuando alcanzan cierta altura o pasan su tiempo de vida, **explotan**. 
+
+![alt text](imagenes/explosion.png)
+
+- Hay tres tipos de explosión:
+  - **Circular** → se dispersan en círculo.
+  - **Random** → se dispersan en cualquier dirección.
+  - **Star** → forma de estrella con rayos desde el centro.
+- Puedo interactuar con la app:
+  - **Clic del mouse** → genera una partícula.
+
+![alt text](imagenes/balls.png)
+
+  - **Barra espaciadora** → genera 1000 partículas de golpe.
+
+![alt text](imagenes/particles.png)
+  
+  - **Tecla 's'** → guarda una captura de pantalla.
+
+
+**Clases principales y cómo funcionan**
+
+**Particle (clase base)**  
+- Es abstracta, o sea, no se puede usar sola.  
+- Define métodos básicos que todas las partículas deben tener: `update()`, `draw()`, `isDead()`.  
+- También tiene `shouldExplode()` para saber si la partícula debe explotar.
+
+**RisingParticle**  
+- Es la partícula que sube.  
+- Guarda **posición, velocidad, color, tiempo de vida y si explotó**.  
+- En cada `update()`:
+  - Suma velocidad a la posición.  
+  - Suma gravedad para que se vea más real.  
+  - Chequea si debe explotar.  
+- `draw()` → dibuja un círculo de color.
+
+**ExplosionParticle**  
+- Base para las partículas de explosión.  
+- Cambia de posición según su velocidad y va perdiendo opacidad hasta desaparecer.
+
+**Tipos de explosión**  
+- **CircularExplosion** → partículas que salen formando un círculo.  
+- **RandomExplosion** → partículas que van en cualquier dirección.  
+- **StarExplosion** → partículas que forman una estrella con líneas.
+
+
+**Manejo de la escena (`ofApp`)**
+
+- `setup()` → inicializa el fondo negro y 60 FPS.  
+- `update()` → actualiza todas las partículas y elimina las que ya murieron.  
+- `draw()` → dibuja todas las partículas.  
+- `createRisingParticle()` → genera una partícula que sube desde abajo.  
+- `mousePressed()` → cada clic crea una partícula.  
+- `keyPressed()` → barra espaciadora genera muchas partículas; `'s'` guarda captura.  
+- Destructor `~ofApp()` → limpia la memoria borrando todas las partículas.
+# Actividad 3
+# Actividad 4
+# Actividad 5
+# Actividad 6
+# Actividad 7
