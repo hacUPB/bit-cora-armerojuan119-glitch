@@ -1032,3 +1032,5 @@ Finalmente, validé los distintos tipos de explosión observando que se generan 
 ![alt text](imagenes/x.png)
 
 ![alt text](imagenes/z.png)
+
+[Código funcional](https://youtu.be/B-pIav5mMKs)
