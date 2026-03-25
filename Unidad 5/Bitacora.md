@@ -408,10 +408,146 @@ También reduce el acoplamiento entre clases, porque el código externo depende 
 la interfaz pública y no de cómo está implementada internamente la clase.
 # Actividad 5
 
+**¿Qué puedo observar al capturar la memoria de un objeto `CircularExplosion`?**
+
+![alt text](imagenes/act5.png)
+
+Al analizar la evidencia en el depurador, observé que el objeto `CircularExplosion` contiene internamente la información de sus clases base, lo cual confirma cómo funciona la herencia en memoria.
+
+En la ventana de variables locales (`Locals`) se puede ver claramente la jerarquía:
+- `this` → tipo `CircularExplosion*`
+- Dentro de este:
+- `ExplosionParticle`
+- `Particle`
+- `position`
+- `velocity`
+- `color`
+- `age`
+- `lifetime`
+- `size`
+- Además de variables propias del constructor como `angle`, `speed`, `pos`, `col`
+
+Esto demuestra que el objeto no solo contiene sus propios datos, sino también los heredados de `ExplosionParticle` y `Particle`. Es decir, en memoria el objeto está compuesto por todos los atributos de la cadena de herencia.
+
+También observé que algunos valores aparecen como:
+<Unable to read memory> ``` Esto sucede porque el breakpoint se encuentra dentro del constructor, por lo que algunos atributos aún no han sido completamente inicializados en ese momento.
+
+El depurador me proporciona información importante como:
+
+- El tipo real del objeto (CircularExplosion*)
+
+- La estructura jerárquica de las clases
+- Los atributos heredados organizados dentro del objeto
+- El estado actual de la memoria (valores válidos o no inicializados)
+
+Puedo concluir que en C++ la herencia se implementa de forma física en memoria, donde el objeto derivado contiene directamente los datos de sus clases base. Esto confirma que no es solo una relación conceptual, sino también estructural.
+
+**¿Cómo se implementa la herencia en C++?**
+
+La herencia en C++ se implementa utilizando la siguiente sintaxis:
+```c++
+class ClaseHija : public ClasePadre {
+};
+```
+
+En este caso:
+```c++
+class CircularExplosion : public ExplosionParticle {
+};
+```
+
+Esto indica que `CircularExplosion` hereda todos los atributos y métodos públicos y protegidos de `ExplosionParticle`, y a su vez, de `Particle`.
+
+El uso de `public` significa que los miembros públicos de la clase base siguen siendo públicos en la clase derivada. Además, mediante funciones virtuales (virtual), se permite el uso de `polimorfismo`, donde el método ejecutado depende del tipo real del objeto en tiempo de ejecución.
+
+**Experimento de herencia múltiple y evidencia en memoria**
+
+Para comprobar la herencia múltiple, implementé tres clases:
+```c++
+class A {
+public:
+    int a;
+};
+
+class B {
+public:
+    int b;
+};
+
+class C : public A, public B {
+public:
+    int c;
+};
+```
+Luego creé una instancia dentro del método setup():
+```c++
+C obj;
+obj.a = 10;
+obj.b = 20;
+obj.c = 30;
+
+int pausa = 0;
+```
+Coloqué un breakpoint en la línea de pausa y ejecuté el programa en modo debug. Al detenerse la ejecución, inspeccioné la variable obj en la ventana Locals del depurador.
+
+A partir de la evidencia observada, el objeto obj se descompone en:
+- Subobjeto A, que contiene el atributo a = 10
+- Subobjeto B, que contiene el atributo b = 20
+- Atributo propio c = 30
+
+Esto se puede ver claramente en la estructura mostrada por el depurador, donde aparecen A y B como partes internas del objeto C.
+
+**Conclusión**
+
+Puedo concluir que en C++ la herencia múltiple se refleja directamente en la memoria del objeto. La clase derivada C contiene internamente los subobjetos correspondientes a cada clase base (A y B), además de sus propios atributos. Esto demuestra que la herencia no solo es una relación lógica entre clases, sino también una composición real en la estructura de memoria del objeto.
+
+![alt text](imagenes/exp5.png)
 
 # Actividad 6
 
+**Observaciones en el depurador**
 
+Al colocar un breakpoint en la línea `particles[i]->update(dt)` dentro del método
+`update()` de `ofApp` y correr la aplicación, pude observar en la ventana Locals que
+el vector `particles` contiene objetos de diferentes tipos al mismo tiempo. En la
+primera captura el vector tiene `size=10` y todos los elementos aparecen con tipo
+`Particle * {SpiralParti...}`, confirmando que son objetos de tipo `SpiralParticle`.
+En la segunda captura, al expandir el elemento `[0]`, puedo ver que el tipo real es
+`RisingParticle`, con todos sus campos internos visibles: `position`, `velocity`,
+`color`, `lifetime`, `age`, `exploded`, y su propia `_vfptr` apuntando a la vtable
+de `RisingParticle`.
+
+Lo más importante que observé es que aunque el vector declara sus elementos como
+`Particle*`, cada objeto en memoria sabe exactamente qué tipo es gracias a su `_vfptr`.
+Cuando el programa llega a `particles[i]->update(dt)`, no ejecuta siempre la misma
+función sino que consulta la vtable del objeto real y ejecuta la implementación
+correspondiente a su clase concreta.
+
+**Diagrama: polimorfismo en tiempo de ejecución**
+
+![alt text](<imagenes/diagrama comp.png>)
+
+Llamada: particles[i]->update(dt)
+  1. Accede al objeto real en memoria
+  2. Lee su _vfptr para encontrar su vtable
+  3. Busca la entrada de update() en esa vtable
+  4. Ejecuta el puntero de función que encuentra ahí
+
+
+Concluyo que el polimorfismo en tiempo de ejecución es posible gracias a la vtable.
+Cada objeto carga un `_vfptr` que apunta a la vtable de su clase real. Aunque el
+vector solo conoce a todos sus elementos como `Particle*`, en tiempo de ejecución
+cada objeto ejecuta su propia versión de `update()` según su tipo real.
+
+**Relación entre métodos virtuales y polimorfismo**
+
+Los métodos virtuales son el mecanismo que hace posible el polimorfismo en tiempo
+de ejecución. Al declarar `update()` como `virtual` en la clase `Particle`, le indico
+al compilador que la resolución de esa función debe diferirse a tiempo de ejecución
+usando la vtable. Sin `virtual`, el compilador resolvería siempre `Particle::update()`
+en tiempo de compilación ignorando el tipo real del objeto. Con `virtual`, el despacho
+se hace en tiempo de ejecución a través de la vtable, permitiendo que el mismo código
+produzca comportamientos completamente diferentes según el tipo concreto del objeto.
 
 # Actividad 7
 **Of app h**
