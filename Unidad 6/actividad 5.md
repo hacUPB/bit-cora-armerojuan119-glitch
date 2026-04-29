@@ -381,3 +381,23 @@ Creé la clase `CircleState` que hereda de `State` e implementa `onEnter` y `upd
 `update` se ejecuta cada frame. Suma 0.03 al ángulo y recalcula la posición con `cos` y `sin` alrededor del centro guardado. Eso hace que la partícula recorra un círculo perfecto.
 
 `Particle::update()` no cambió para nada: sigue siendo solo `state->update(this)`. No sabe nada de círculos ni ángulos. Todo el comportamiento está encapsulado dentro de `CircleState`, que es exactamente el objetivo del patrón State.
+
+## Cambios que se hicieron
+
+### ofApp.h
+![alt text](<imagenes/circle state.png>)
+
+### ofApp.cpp
+![alt text](<imagenes/circle state cpp.png>)
+
+### ParticleFactory::createParticle
+![alt text](imagenes/particle.png)
+
+### Particle::onNotify
+![alt text](<imagenes/on notify.png>)
+
+### keyPressed
+![alt text](<imagenes/key pressed.png>)
+
+### ofApp::setup
+![alt text](<imagenes/off app set up.png>)
