@@ -1,4 +1,4 @@
-## 2. Conceptos que se me guardaron
+## 1. Conceptos que se me guardaron
 ![alt text](imagenes/punto1.jpeg)
 
 
