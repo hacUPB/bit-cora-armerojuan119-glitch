@@ -1,0 +1,28 @@
+## Autoevaluación
+
+### Nota propuesta: 4
+
+---
+
+### Defensa por actividad
+
+**Actividad 1**
+Realicé esta actividad completa. Ejecuté la aplicación que el profesor nos dio, observé el comportamiento de las partículas, identifiqué los tres tipos por su color y tamaño, interactué con todas las teclas y documenté lo que veía. Formulé mi hipótesis con mis propias palabras sobre lo que creía que estaba pasando detrás del código.
+
+**Actividad 2**
+La realicé completa. Analicé el código del caso de estudio para identificar quién era el Subject, quién el Observer y quién el ConcreteObserver. Expliqué el flujo de notificación cuando se presiona una tecla y argumenté por qué el patrón Observer es mejor que usar una variable global. Para realizar el código me apoyé en la aplicación que el profesor nos compartió y en inteligencia artificial para organizar las ideas y aprender a programar,las explicaciones las redacté entendiendo lo que estaba pasando en el código.
+
+**Actividad 3**
+También la realicé completa. Estudié cómo funciona `ParticleFactory`, entendí qué hace cada bloque del método `createParticle` y expliqué las ventajas de usar la fábrica versus crear las partículas directamente. Razoné los pasos para agregar un tipo nuevo y comparé el método estático con uno de instancia. Igual que en la actividad anterior, me apoyé en IA para estructurar algunas respuestas.
+
+**Actividad 4**
+La realicé completa. Identifiqué los componentes del patrón State en el código, expliqué qué hace cada estado concreto (`NormalState`, `AttractState`, `RepelState`, `StopState`), dibujé el diagrama de transiciones y argumenté por qué el patrón State es superior al `if/else`. También expliqué la utilidad de `onEnter` y `onExit` con ejemplos concretos.
+
+**Actividad 5**
+Esta fue la más práctica. Agregué la partícula `"circler"` al proyecto. Implementé `CircleState` con su `onEnter` y `update`, la registré en la fábrica y la suscribí como observadora. Tuve que entender bien el código del profesor para saber exactamente dónde agregar cada pieza sin romper lo que ya funcionaba. Me apoyé en inteligencia artificial para guiarme en los pasos, pero el código lo escribí yo en mi proyecto y verifiqué que funcionara antes de documentarlo.
+
+---
+
+### Por qué propongo un 4 y no un 5
+
+Propongo un 4 porque, aunque realicé las 5 actividades completas, en varias de ellas me apoyé en inteligencia artificial para organizar y estructurar las explicaciones. Considero que eso afecta la nota porque el aprendizaje debería reflejarse completamente en mis propias palabras y razonamiento. Lo que sí puedo defender es que entendí el código, lo ejecuté, lo modifiqué y pude explicar qué hace cada parte. No copié sin entender, pero sí usé ayuda externa más de lo ideal.
