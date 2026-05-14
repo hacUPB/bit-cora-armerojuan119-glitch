@@ -171,5 +171,17 @@ En este código no estoy usando uniforms, pero si quisiera (como pasarle un colo
 - Mandarle un valor en cada frame con funciones como `glUniform1f`, `glUniform2f`, etc.
 
 **En resumen:** usar un shader en OpenGL es: escribirlo en GLSL, compilarlo, enlazarlo dentro de un program, y activarlo con `glUseProgram` antes de dibujar. Sin ese proceso, la GPU no sabría cómo procesar los vértices ni cómo pintar los fragmentos.
+# Bitácora 4 
+Sinceramente, no tengo muy claro qué va a pasar. Me imagino que van a aparecer tres triángulos en pantalla, uno por cada draw call, pero no sé bien dónde va a quedar cada uno.
 
-# Bitacora 4
+El primero, con el shader A, debería verse normal porque usa la posición tal cual está definida en el VBO. Espero que se vea en la esquina de abajo a la izquierda más o menos.
+
+El segundo, con el shader B, me confunde un poco porque está usando los colores como si fueran posiciones. Supongo que va a salir un triángulo en un lugar raro, probablemente chiquito y cerca del centro, porque los valores de color son bajos.
+
+El tercero, con el shader C, usa el offset como posición. Como esos valores están entre 0.1 y 0.75, creo que va a aparecer en la parte de arriba a la derecha, también pequeño.
+
+Lo que sí me da curiosidad es si los tres se van a ver al mismo tiempo o si uno va a tapar al otro. También, como no se cambia el color, espero que los tres salgan naranjas.
+
+Resultado
+(Adjunto la captura para comparar con mi predicción.)
+
