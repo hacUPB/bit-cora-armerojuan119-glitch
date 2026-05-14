@@ -182,6 +182,4 @@ El tercero, con el shader C, usa el offset como posición. Como esos valores est
 
 Lo que sí me da curiosidad es si los tres se van a ver al mismo tiempo o si uno va a tapar al otro. También, como no se cambia el color, espero que los tres salgan naranjas.
 
-Resultado
-(Adjunto la captura para comparar con mi predicción.)
 
